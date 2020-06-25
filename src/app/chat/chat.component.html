@@ -1,0 +1,38 @@
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Chat App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+  </nav>
+</header>
+<main class="chat">
+<div class="container">
+    <div class="chat-content">
+      <div class="card">
+       <ul class="list-group list-group-flash">
+          <li class="list-group-item" *ngFor=" let i of webSocketservice.chatMessage">
+          <strong>{{i.user}}::=></strong>
+          <span>{{i.message}}</span>  
+          </li>
+       </ul>
+      </div>
+    </div>
+    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+     <div class="chat-send row">
+         <div class="col-2">
+        <input class="form-control" type="text" name="user" id="input-user" ngModel>
+         </div>
+         <div class="col-8">
+            <input class="form-control" type="text" name="message" id="input-message" ngModel>  
+        </div>
+        <div class="col-2">
+         <button type="Submit" class="btn btn-primary">Send</button>  
+        </div>
+     </div>
+
+    </form>
+</div>
+
+
+</main>
